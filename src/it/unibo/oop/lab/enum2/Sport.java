@@ -16,69 +16,57 @@ package it.unibo.oop.lab.enum2;
  * 
  */
 public enum Sport {
+	BASKET(Place.OUTDOOR, 5, "Basket"), 
+	VOLLEY(Place.INDOOR, 6, "Volley"),
+	TENNIS(Place.OUTDOOR, 1, "Tennis"),
+	BIKE(Place.OUTDOOR, 1, "Bike"),
+	F1(Place.OUTDOOR, 1, "F1"),
+	MOTOGP(Place.OUTDOOR, 1, "MotoGP"),
+	SOCCER(Place.OUTDOOR, 11, "Soccer");
+	
+	private int numberOfMembers;
+	private String nameOfSport;
+	private Place place;
+	
+	Sport(final Place place, final int numberOfMembers, String name){
+		this.numberOfMembers = numberOfMembers;
+		this.nameOfSport = name;
+		this.place = place;
+	}
+	
+	public boolean isIndividualSport() {
+		return this.getNumberOfMembers() == 1;
+	}
+	
+	public boolean isIndoorSport() {
+		return this.getPlace() == Place.INDOOR;
+	}
+	
+	public String toString() {
+		return "Name: " + this.getNameOfSport() + "Members: " + this.getNumberOfMembers() + "Place: " + this.getPlace();
+	}
+	
+	public int getNumberOfMembers() {
+		return numberOfMembers;
+	}
 
-    /*
-     * TODO
-     * 
-     * Declare the following sports:
-     * 
-     * - basket
-     * 
-     * - volley
-     * 
-     * - tennis
-     * 
-     * - bike
-     * 
-     * - F1
-     * 
-     * - motogp
-     * 
-     * - soccer
-     * 
-     */
+	public void setNumberOfMembers(int numberOfMembers) {
+		this.numberOfMembers = numberOfMembers;
+	}
 
-    /*
-     * TODO
-     * 
-     * [FIELDS]
-     * 
-     * Declare required fields
-     */
+	public String getNameOfSport() {
+		return nameOfSport;
+	}
 
-    /*
-     * TODO
-     * 
-     * [CONSTRUCTOR]
-     * 
-     * Define a constructor like this:
-     * 
-     * - Sport(final Place place, final int noTeamMembers, final String actualName)
-     */
+	public void setNameOfSport(String nameOfSport) {
+		this.nameOfSport = nameOfSport;
+	}
 
-    /*
-     * TODO
-     * 
-     * [METHODS] To be defined
-     * 
-     * 
-     * 1) public boolean isIndividualSport()
-     * 
-     * Must return true only if called on individual sports
-     * 
-     * 
-     * 2) public boolean isIndoorSport()
-     * 
-     * Must return true in case the sport is practices indoor
-     * 
-     * 
-     * 3) public Place getPlace()
-     * 
-     * Must return the place where this sport is practiced
-     * 
-     * 
-     * 4) public String toString()
-     * 
-     * Returns the string representation of a sport
-     */
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
 }
