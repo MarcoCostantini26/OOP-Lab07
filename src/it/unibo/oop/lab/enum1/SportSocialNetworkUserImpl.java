@@ -3,6 +3,9 @@
  */
 package it.unibo.oop.lab.enum1;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUserImpl;
 import it.unibo.oop.lab.socialnetwork.User;
 
@@ -10,26 +13,13 @@ import it.unibo.oop.lab.socialnetwork.User;
  * 
  * Represents a social network user along with the sports he/she likes to do or
  * to follow.
- * 
- * 1) Define the same behavior as done on the previous exercise: - you can reuse
- * the same class, but... - ..now make explicit reference to an enumeration
- * Sport rather than a nested static class
- * 
- * 
- * - NOTE: now we going to define Sport as an enumeration (in its own file
- * Sport.java)
- * 
- * 
+  
  * @param <U>
  *            specific user type
  */
 public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUserImpl<U> {
-
-    /*
-     * TODO
-     * 
-     * add a field to keep track of the set of sports followed/done by a user
-     */
+	
+	Set<Sport> sports = new HashSet<>();
 
     /**
      * Builds a new {@link SportSocialNetworkUserImpl}.
@@ -63,12 +53,6 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
         super(name, surname, user, userAge);
     }
 
-    /*
-     * [METHODS]
-     * 
-     * Redefine the methods below reusing the same code of previous exercise
-     */
-
     /**
      * Add a new sport followed by this user: if the user already likes or does
      * the sport, nothing happens.
@@ -76,9 +60,10 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * @param sport
      *            a sport followed/done by the user
      */
-    // TODO
     public void addSport(final Sport sport) {
-
+    	if(!hasSport(sport)) {
+    		sports.add(sport);
+    	}
     }
 
     /**
@@ -90,6 +75,6 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * @return true if the user likes sport s
      */
     public boolean hasSport(final Sport s) {
-        return false;
+        return sports.contains(s);
     }
 }
