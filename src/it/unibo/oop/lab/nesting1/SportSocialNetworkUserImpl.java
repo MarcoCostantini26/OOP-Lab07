@@ -15,11 +15,6 @@ import it.unibo.oop.lab.socialnetwork.User;
  * Represents a social network user along with the sports he/she likes to do or
  * to follow.
  * 
- * 1) Complete the definition of the nested static class Sport, featuring just a
- * field representing the sport name.
- * 
- * 2) Add the unimplemented methods.
- * 
  * @param <U>
  *            specific {@link User} type
  */
@@ -96,12 +91,6 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
         super(name, surname, user, userAge);
         this.sports = new HashSet<>();
     }
-
-    /*
-     * [METHODS]
-     * 
-     * Implements all the methods below
-     */
 
     /**
      * Add a new sport followed by this user: if the user already likes or does
