@@ -117,7 +117,7 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
     			praticedInPlaceSport.add(sport);
     		}
     	}
-    	return null; 
+    	return praticedInPlaceSport; 
     }
      
 }
