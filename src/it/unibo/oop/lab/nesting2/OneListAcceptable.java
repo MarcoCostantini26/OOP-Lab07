@@ -19,22 +19,26 @@ public class OneListAcceptable<T> implements Acceptable<T> {
 
 			@Override
 			public void accept(T newElement) throws ElementNotAcceptedException {
-				if(newElement.equals(iterator.next())) {
-					return;
-				}else {
-					throw new ElementNotAcceptedException(newElement);
+				try {
+					if(newElement.equals(iterator.next())) {
+						return;
+					}
+				}catch(Exception e) {
+					System.out.println(e);
 				}
-				
+					throw new ElementNotAcceptedException(newElement);
 			}
 
 			@Override
 			public void end() throws EndNotAcceptedException {
-				if(!iterator.hasNext()) {
-					return;
-				}else {
-					throw new EndNotAcceptedException();
+				try {
+					if(!iterator.hasNext()) {
+						return;
+					}
+				}catch(Exception e) {
+					System.out.println(e);
 				}
-				
+					throw new EndNotAcceptedException();
 			} 
 			
 		};
